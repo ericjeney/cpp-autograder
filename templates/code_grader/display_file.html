@@ -1,0 +1,10 @@
+{% extends "code_grader/base.html" %}
+
+{% block title %}{{name}} | Autograder {% endblock %}
+
+{% block content %}
+<h4 align="center">{{name}}'s Submission</h4>
+{% for line in file %}
+{{line}}<br />
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script src="http://geneva.rutgers.edu/~jeney/prototype.js" type="text/javascript"></script>
+	
+    <title>{% block title %}C++ Autograder{% endblock %}</title>
+<style type="text/css">
+<!--
+
+.pass {
+	background-color: #9F9;
+}
+#content {
+	background-color: #FFF;
+	width: 600px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius:20px;
+	-moz-border-radius:20px;
+	border: thick solid #333;
+	padding: 10px;
+}
+body {
+	background-color: #9FF;
+}
+-->
+</style></head>
+
+<body>
+	<div id="content">
+		<div id="title" align="center">
+			{% block upload %}<a href="/upload/">Upload Submission</a>{% endblock %} &bull; {% block new %}<a href="/new/">Create New Quiz</a>{% endblock %} &bull; {% block view %}<a href="/view/">View Results</a>{% endblock %}
+		</div>
+
+        {% block content %}{% endblock %}
+    </div>
+	<div align="center"><b> &bull; Designed by Eric Jeney &bull; </b></div>
+	
+	{% block customScript %}{% endblock %}
+</body>
+</html>

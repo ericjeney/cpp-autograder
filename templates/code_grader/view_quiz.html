@@ -1,0 +1,25 @@
+{% extends "code_grader/base.html" %}
+
+{% block title %}Quiz Results | Autograder {% endblock %}
+
+{% block view %}<b>View Results</b>{% endblock %}
+
+{% block content %}
+<h3 align="center">{{quiz}}</h3>
+<table align="center" border="1">
+	<tr>
+		<th>Student</th>
+		<th>Status</th>
+		<th>Submission Time</th>
+		<th>Run Time</th>
+	</tr>
+	{% for sub in submissions %}
+		<tr class="{% if sub.didPass %} pass {% endif %}">
+			<td><a href="http://127.0.0.1:8000/display/?submission={{sub.randomness}}">{{sub.student}}</a></td>
+			<td>{{sub.status}}</td>
+			<td>{{sub.time}}</td>
+			<td>{{sub.runtime}}</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

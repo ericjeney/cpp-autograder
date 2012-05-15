@@ -1,0 +1,22 @@
+{% extends "code_grader/base.html" %}
+
+{% block title %}Successfully Uploaded | Autograder {% endblock %}
+
+{% block customScript %}
+<script type="text/javascript">
+	new Ajax.PeriodicalUpdater('quizStatus', '/status/', {
+	method: 'post',
+	frequency: 1,
+	decay: 2,
+	parameters: {submission: $("submissionId").innerHTML},
+	});
+</script>
+{% endblock %}
+
+
+{% block content %}
+<p id="submissionId" style="display:none;">{{id}}</p>
+<h3 align="center">Successfully Uploaded Submission</h3>
+<p align="center">Submitted File to Quiz: "{{title}}"</p>
+<p align="center">Current Status: <span id="quizStatus"></span></p>
+{% endblock %}

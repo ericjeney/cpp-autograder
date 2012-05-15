@@ -1,0 +1,12 @@
+{% extends "code_grader/base.html" %}
+
+{% block new %}<b>Create New Quiz</b>{% endblock %}
+
+{% block title %}Add New Quiz | Autograder {% endblock %}
+
+{% block content %}
+<form enctype="multipart/form-data" action="/new/" method="post">
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+</form>
+{% endblock %}

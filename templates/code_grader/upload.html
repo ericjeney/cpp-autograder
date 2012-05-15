@@ -1,0 +1,18 @@
+{% extends "code_grader/base.html" %}
+
+{% block upload %}<b>Upload Submission</b>{% endblock %}
+
+{% block title %}Upload Submission | Autograder {% endblock %}
+
+{% block content %}
+<div align="center">
+<form enctype="multipart/form-data" action="/upload/" method="post">
+	{{form.non_field_errors}}
+	{{form.quiz.errors}}<p align="center"><label for="id_quiz">Please Select a Quiz:</label> {{form.quiz}}</p> 
+	{{form.name.errors}}{{form.file.errors}}<p align="center"><label for="id_name">Name:</label> {{form.name}}
+	<span style="margin-left:20px;"><label for="id_file">File:</label> {{form.file}}</span></p>
+
+	<input type="submit" value="Submit" />
+</form>
+</div>
+{% endblock %}
